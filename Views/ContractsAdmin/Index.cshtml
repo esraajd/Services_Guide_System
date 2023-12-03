@@ -1,0 +1,90 @@
+﻿@model IEnumerable<WebApplication1.Models.Contract>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1 style="color: steelblue;">Contracts</h1>
+<style>
+    table {
+        width: 50%;
+        font-size: 10px;
+    }
+
+    th, td {
+        font-size: 12px;
+    }
+</style>
+<table class="table">
+    <thead>
+        <tr style ="background-color: lightblue">
+            <th>
+                <p style="color: steelblue;"> @Html.DisplayNameFor(model => model.Title)</p>
+            </th>
+            <th>
+                <p style="color: steelblue;"> @Html.DisplayNameFor(model => model.Description)</p>
+            </th>
+            <th>
+                <p style="color: steelblue;"> @Html.DisplayNameFor(model => model.StartDate)</p>
+            </th>
+            <th>
+                <p style="color: steelblue;"> @Html.DisplayNameFor(model => model.EndDate)</p>
+            </th>
+            <th>
+                <p style="color: steelblue;">@Html.DisplayNameFor(model => model.Status)</p>
+            </th>
+            <th>
+                <p style="color: steelblue;"> @Html.DisplayNameFor(model => model.Price)</p>
+            </th>
+            <th>
+                <p style="color: steelblue;">  @Html.DisplayNameFor(model => model.Total)</p>
+            </th>
+            <th>
+                <p style="color: steelblue;">@Html.DisplayNameFor(model => model.Provider)</p>
+            </th>
+            <th>
+                <p style="color: steelblue;"> @Html.DisplayNameFor(model => model.Requester)</p>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provider.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Requester.Id)
+            </td>
+            <td>
+          
+                <a asp-action="Details" asp-route-id="@item.ContractId">Details</a> 
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
